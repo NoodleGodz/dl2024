@@ -33,9 +33,79 @@ I use initial state $= -2$ and stop when $f(x) < 0.001$
 
 \begin{itemize}
     \item \textbf{$L = 0.01:$} The algorithm took 206 steps
+    \begin{table}[]
+        \begin{tabular}{|lll|ll}
+        \cline{1-3}
+        \multicolumn{1}{|l|}{\textbf{time}} & \multicolumn{1}{l|}{\textbf{x}} & \textbf{f(x)} &  &  \\ \cline{1-3}
+        \multicolumn{1}{|l|}{0}             & \multicolumn{1}{l|}{-2.000}     & 4.000         &  &  \\ \cline{1-3}
+        \multicolumn{1}{|l|}{1}             & \multicolumn{1}{l|}{-1.600}     & 2.560         &  &  \\ \cline{1-3}
+        \multicolumn{1}{|l|}{2}             & \multicolumn{1}{l|}{-1.280}     & 1.638         &  &  \\ \cline{1-3}
+        \multicolumn{1}{|l|}{3}             & \multicolumn{1}{l|}{-1.024}     & 1.049         &  &  \\ \cline{1-3}
+        \multicolumn{1}{|l|}{4}             & \multicolumn{1}{l|}{-0.819}     & 0.671         &  &  \\ \cline{1-3}
+        \multicolumn{3}{|c|}{.......}                                                         &  &  \\ \cline{1-3}
+        \multicolumn{1}{|l|}{202}           & \multicolumn{1}{l|}{-0.034}     & 0.001         &  &  \\ \cline{1-3}
+        \multicolumn{1}{|l|}{203}           & \multicolumn{1}{l|}{-0.033}     & 0.001         &  &  \\ \cline{1-3}
+        \multicolumn{1}{|l|}{204}           & \multicolumn{1}{l|}{-0.032}     & 0.001         &  &  \\ \cline{1-3}
+        \multicolumn{1}{|l|}{205}           & \multicolumn{1}{l|}{-0.032}     & 0.001         &  &  \\ \cline{1-3}
+        \multicolumn{1}{|l|}{206}           & \multicolumn{1}{l|}{-0.031}     & 0.001         &  &  \\ \cline{1-3}
+        \end{tabular}
+        \end{table}
     \item \textbf{$L = 0.1:$} The algorithm took 19 steps    
+    \begin{table}[]
+        \begin{tabular}{|lll|ll}
+        \cline{1-3}
+        \multicolumn{1}{|l|}{\textbf{time}} & \multicolumn{1}{l|}{\textbf{x}} & \textbf{f(x)} &  &  \\ \cline{1-3}
+        \multicolumn{1}{|l|}{0}             & \multicolumn{1}{l|}{-2.000}     & 4.000         &  &  \\ \cline{1-3}
+        \multicolumn{1}{|l|}{1}             & \multicolumn{1}{l|}{-1.600}     & 2.560         &  &  \\ \cline{1-3}
+        \multicolumn{1}{|l|}{2}             & \multicolumn{1}{l|}{-1.280}     & 1.638         &  &  \\ \cline{1-3}
+        \multicolumn{1}{|l|}{3}             & \multicolumn{1}{l|}{-1.024}     & 1.049         &  &  \\ \cline{1-3}
+        \multicolumn{1}{|l|}{4}             & \multicolumn{1}{l|}{-0.819}     & 0.671         &  &  \\ \cline{1-3}
+        \multicolumn{3}{|c|}{.......}                                                         &  &  \\ \cline{1-3}
+        \multicolumn{1}{|l|}{15}            & \multicolumn{1}{l|}{-0.070}     & 0.005         &  &  \\ \cline{1-3}
+        \multicolumn{1}{|l|}{16}            & \multicolumn{1}{l|}{-0.056}     & 0.003         &  &  \\ \cline{1-3}
+        \multicolumn{1}{|l|}{17}            & \multicolumn{1}{l|}{-0.045}     & 0.002         &  &  \\ \cline{1-3}
+        \multicolumn{1}{|l|}{18}            & \multicolumn{1}{l|}{-0.036}     & 0.001         &  &  \\ \cline{1-3}
+        \multicolumn{1}{|l|}{19}            & \multicolumn{1}{l|}{-0.029}     & 0.001         &  &  \\ \cline{1-3}
+        \end{tabular}
+        \end{table}
     \item \textbf{$L = 1:$} The algorithm loops infinitely at $x=2$ and $x=-2$
+    \begin{table}[]
+        \begin{tabular}{|lll|ll}
+        \cline{1-3}
+        \multicolumn{1}{|l|}{\textbf{time}} & \multicolumn{1}{l|}{\textbf{x}} & \textbf{f(x)} &  &  \\ \cline{1-3}
+        \multicolumn{1}{|l|}{0}             & \multicolumn{1}{l|}{-2.000}     & 4.000         &  &  \\ \cline{1-3}
+        \multicolumn{1}{|l|}{1}             & \multicolumn{1}{l|}{2.000}      & 4.000         &  &  \\ \cline{1-3}
+        \multicolumn{1}{|l|}{2}             & \multicolumn{1}{l|}{-2.000}     & 4.000         &  &  \\ \cline{1-3}
+        \multicolumn{1}{|l|}{3}             & \multicolumn{1}{l|}{2.000}      & 4.000         &  &  \\ \cline{1-3}
+        \multicolumn{1}{|l|}{4}             & \multicolumn{1}{l|}{-2.000}     & 4.000         &  &  \\ \cline{1-3}
+        \multicolumn{3}{|c|}{.......}                                                         &  &  \\ \cline{1-3}
+        \multicolumn{1}{|l|}{29004}         & \multicolumn{1}{l|}{-2.000}     & 4.000         &  &  \\ \cline{1-3}
+        \multicolumn{1}{|l|}{29005}         & \multicolumn{1}{l|}{2.000}      & 4.000         &  &  \\ \cline{1-3}
+        \multicolumn{1}{|l|}{29006}         & \multicolumn{1}{l|}{-2.000}     & 4.000         &  &  \\ \cline{1-3}
+        \multicolumn{1}{|l|}{29007}         & \multicolumn{1}{l|}{2.000}      & 4.000         &  &  \\ \cline{1-3}
+        \multicolumn{1}{|l|}{29008}         & \multicolumn{1}{l|}{-2.000}     & 4.000         &  &  \\ \cline{1-3}
+        \multicolumn{3}{|l|}{KeyboardInterrupt}                                               &  &  \\ \cline{1-3}
+        \end{tabular}
+        \end{table}
+    
     \item \textbf{$L = 10:$} The algorithm never converge, f(x) float overloads.
+    \begin{table}[]
+        \begin{tabular}{|lll|ll}
+        \cline{1-3}
+        \multicolumn{1}{|l|}{\textbf{time}} & \multicolumn{1}{l|}{\textbf{x}}  & \textbf{f(x)}   &  &  \\ \cline{1-3}
+        \multicolumn{1}{|l|}{0}             & \multicolumn{1}{l|}{-2.000}      & 4.000           &  &  \\ \cline{1-3}
+        \multicolumn{1}{|l|}{1}             & \multicolumn{1}{l|}{38.000}      & 1444.000        &  &  \\ \cline{1-3}
+        \multicolumn{1}{|l|}{2}             & \multicolumn{1}{l|}{-722.000}    & 521284.000      &  &  \\ \cline{1-3}
+        \multicolumn{1}{|l|}{3}             & \multicolumn{1}{l|}{13718.000}   & 188183524.000   &  &  \\ \cline{1-3}
+        \multicolumn{1}{|l|}{4}             & \multicolumn{1}{l|}{-260642.000} & 67934252164.000 &  &  \\ \cline{1-3}
+        \multicolumn{3}{|c|}{.......}                                                            &  &  \\ \cline{1-3}
+        \multicolumn{1}{|l|}{120}           & \multicolumn{1}{l|}{-----}       & -------         &  &  \\ \cline{1-3}
+        \multicolumn{3}{|c|}{\textbf{OverflowError: int too large}}                              &  &  \\ \cline{1-3}
+        \end{tabular}
+        \end{table}
 \end{itemize}
+
+\section{Conclusion}
+###
 
 \end{document}

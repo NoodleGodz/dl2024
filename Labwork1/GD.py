@@ -19,7 +19,7 @@ def gradient_d(x,L,stop):
 
 
 x0 = -2
-L = 0.1
+L = 10
 stop = 0.001
 print(f"time\tx\tf(x)")
 gradient_d(x0,L,stop)
