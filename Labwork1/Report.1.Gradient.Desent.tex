@@ -1,0 +1,36 @@
+
+\documentclass{article}
+\title{Labwork 1: Gradient Descent}
+\author{Nguyen Dang Minh - M23.ICT.008}
+\date{\today}
+
+
+\begin{document}
+
+\maketitle
+
+
+\section{Implement the algorithm}
+\begin{itemize}
+\item \texttt{gradient\_d(x, L, stop)} has 3 parameters: $x = $ initial state, $L =$ Learning Rate, $stop =$ stopping the algorithm when $f(x)<stop$. 
+
+
+\item Updates the value of $x$ using the gradient descent formula: $x = x - L * f'(x)$.
+
+
+\item Print the intermediate iterative steps
+
+
+\item Continues until the value of $f(x)$ falls below the stop threshold.
+\end{itemize}
+\section{Different learning rate L}
+I use initial state $= -2$ and stop when $f(x) < 0.001$
+
+\begin{itemize}
+    \item \textbf{$L = 0.01:$} The algorithm took 206 steps
+    \item \textbf{$L = 0.1:$} The algorithm took 19 steps    
+    \item \textbf{$L = 1:$} The algorithm loops infinitely at $x=2$ and $x=-2$
+    \item \textbf{$L = 10:$} The algorithm never converge, f(x) float overloads.
+\end{itemize}
+
+\end{document}
