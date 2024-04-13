@@ -5,15 +5,17 @@ def f(x):
 def f_(x):
     return 2*x
 
-
+def print_step(time,x):
+    print(f"{time}\t{x:.3f}\t{f(x):.3f}")
+    
 
 def gradient_d(x,L,stop):
     time = 0
-    print(f"{time}\t{x:.3f}\t{f(x):.3f}")
+    print_step(time,x)
     while f(x)>stop:
         time = time +1
         x = x - L * f_(x)
-        print(f"{time}\t{x:.3f}\t{f(x):.3f}")
+        print_step(time,x)
 
 
 x0 = -2

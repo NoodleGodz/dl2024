@@ -9,10 +9,14 @@
 
 \maketitle
 
+\section{Introduction}
+Gradient descent: An iterative algorithm to find minimum value.
 
-\section{Implement the algorithm}
+Usage: use in Linear Regression for minimize error from predicted_value to true_value.
+
+\section{Implementation}
 \begin{itemize}
-\item \texttt{gradient\_d(x, L, stop)} has 3 parameters: $x = $ initial state, $L =$ Learning Rate, $stop =$ stopping the algorithm when $f(x)<stop$. 
+\item my function \texttt{gradient\_d(x, L, stop)} has 3 parameters: $x = $ initial state, $L =$ Learning Rate, $stop =$ stopping the algorithm when $f(x)<stop$. 
 
 
 \item Updates the value of $x$ using the gradient descent formula: $x = x - L * f'(x)$.
@@ -24,6 +28,7 @@
 \item Continues until the value of $f(x)$ falls below the stop threshold.
 \end{itemize}
 \section{Different learning rate L}
+Test for function $f(x) = x^2$
 I use initial state $= -2$ and stop when $f(x) < 0.001$
 
 \begin{itemize}
