@@ -12,5 +12,7 @@ Students are expected to:
 Student Info
 =======================
 
-* Name: MyName
+* Name: Nguyễn Đăng Minh
+* ID: M23.ICT.008
+
 
