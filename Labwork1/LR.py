@@ -9,12 +9,12 @@ def f_(x):
 
 def gradient_d(x,L,stop):
     time = 0
-    print(f"{time}\t{x:.3f}\t{f(x):.3f}")
+    #print(f"{time}\t{x:.3f}\t{f(x):.3f}")
     while f(x)>stop:
         time = time +1
         x = x - L * f_(x)
-        print(f"{time}\t{x:.3f}\t{f(x):.3f}")
-
+        #print(f"{time}\t{x:.3f}\t{f(x):.3f}")
+    
 
 x0 = -2
 L = 0.1
