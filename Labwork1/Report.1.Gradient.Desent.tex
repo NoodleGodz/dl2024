@@ -31,8 +31,7 @@ Usage: use in Linear Regression for minimize error from predicted_value to true_
 Test for function $f(x) = x^2$
 I use initial state $= -2$ and stop when $f(x) < 0.001$
 
-\begin{itemize}
-    \item \textbf{$L = 0.01:$} The algorithm took 206 steps
+\textbf{$L = 0.01:$} The algorithm took 206 steps
     \begin{table}[]
         \begin{tabular}{|lll|ll}
         \cline{1-3}
@@ -50,7 +49,8 @@ I use initial state $= -2$ and stop when $f(x) < 0.001$
         \multicolumn{1}{|l|}{206}           & \multicolumn{1}{l|}{-0.031}     & 0.001         &  &  \\ \cline{1-3}
         \end{tabular}
         \end{table}
-    \item \textbf{$L = 0.1:$} The algorithm took 19 steps    
+
+        \textbf{$L = 0.1:$} The algorithm took 19 steps    
     \begin{table}[]
         \begin{tabular}{|lll|ll}
         \cline{1-3}
@@ -68,7 +68,8 @@ I use initial state $= -2$ and stop when $f(x) < 0.001$
         \multicolumn{1}{|l|}{19}            & \multicolumn{1}{l|}{-0.029}     & 0.001         &  &  \\ \cline{1-3}
         \end{tabular}
         \end{table}
-    \item \textbf{$L = 1:$} The algorithm loops infinitely at $x=2$ and $x=-2$
+
+        \textbf{$L = 1:$} The algorithm loops infinitely at $x=2$ and $x=-2$
     \begin{table}[]
         \begin{tabular}{|lll|ll}
         \cline{1-3}
@@ -88,7 +89,8 @@ I use initial state $= -2$ and stop when $f(x) < 0.001$
         \end{tabular}
         \end{table}
     
-    \item \textbf{$L = 10:$} The algorithm never converge, f(x) float overloads.
+
+        \textbf{$L = 10:$} The algorithm never converge, f(x) float overloads.
     \begin{table}[]
         \begin{tabular}{|lll|ll}
         \cline{1-3}
@@ -103,7 +105,7 @@ I use initial state $= -2$ and stop when $f(x) < 0.001$
         \multicolumn{3}{|c|}{\textbf{OverflowError: int too large}}                              &  &  \\ \cline{1-3}
         \end{tabular}
         \end{table}
-\end{itemize}
+
 
 \section{Conclusion}
 ###
