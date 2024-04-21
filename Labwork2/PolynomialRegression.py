@@ -1,5 +1,24 @@
 X = [1, 2, 3, 4, 5]
-y = [ 14 , 41 , 98 ,197, 350] 
+y = [ 14 , 201 , 128 ,197, 320] 
+
+def f(x,w):
+    res = 0
+    for i,wi in enumerate(w):
+        res+= x**i*wi
+    return res
+    
+def deri_wn(X,y,w):
+    deg = len(w)-1
+    dwn = [(f(xi,w) - yi ) * xi ** deg for xi, yi in zip(X,y)]
+    dl = sum(dwn) / len(X)
+    return dl
+
+def L(X, y, w):
+    y_preds = [f(xi,w) for xi in X]
+    l = [(yi - y_pred) ** 2 for yi, y_pred in zip(y, y_preds)]
+    lost = sum(l) / (2 * len(y))
+    return lost
+
 
 def deri_w3(X, y, w3, w2, w1, w0):
 
@@ -55,11 +74,13 @@ def GradientDescent4D(X, y, w3, w2, w1, w0, L, deri_w3, deri_w2, deri_w1, deri_w
     
     return w3, w2, w1, w0
 
-def PolynomialRegression(X, y):
-    w3, w2, w1, w0 = 1, 1, 1, 0
+def GradientDescentGen(X, y, w, f, L, deri_wn, lr, stop):
+
+def PolynomialRegression(X, y, degree):
+    w = [0,1,1,1]
     lr = 0.0001  
     stop = 0.0001  
-    w3, w2, w1, w0 = GradientDescent4D(X, y, w3, w2, w1, w0, L, deri_w3, deri_w2, deri_w1, deri_w0, lr, stop)
+    w3, w2, w1, w0 = GradientDescentGen(X, y, w, L, deri_wn, lr, stop)
     print(f"f(x) = {w3:.3f}x^3 + {w2:.3f}x^2 + {w1:.3f}x + {w0:.3f}")
     return w3,w2,w1,w0
 
