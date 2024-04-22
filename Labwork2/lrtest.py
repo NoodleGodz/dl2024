@@ -1,22 +1,19 @@
-import csv
-from sklearn.linear_model import LinearRegression
+import numpy as np
 
-def load_csv(fp):
-    X = []
-    y = []
-    with open(fp, 'r') as file:
-        reader = csv.reader(file)
-        next(reader)  
-        for row in reader:
-            X.append([float(row[0])])
-            y.append(float(row[1]))
-    return X, y
+# Set random seed for reproducibility
+np.random.seed(42)
 
-X, y = load_csv("Labwork1\\house_prices.csv")
+# Number of samples
+num_samples = 100
 
-model = LinearRegression()
-model.fit(X, y)
-w1 = model.coef_[0]  
-w0 = model.intercept_  
-print("Slope (w1):", w1)
-print("Intercept (w0):", w0)
+# Generate random values for features x1 and x2
+x1 = np.random.uniform(low=-10, high=10, size=num_samples)
+x2 = np.random.uniform(low=-10, high=10, size=num_samples)
+
+# Generate random binary labels (0 or 1)
+y = np.random.randint(2, size=num_samples)
+
+# Display the first few samples to verify
+print("x1:", x1[:5])
+print("x2:", x2[:5])
+print("y:", y[:5])
