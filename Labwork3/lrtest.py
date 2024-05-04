@@ -2,9 +2,16 @@ from matplotlib import pyplot as plt
 import numpy as np
 from sklearn.linear_model import LogisticRegression
 
-X = [[2, -3], [7, 7], [9, 15], [4, 2], [1, -3], [5, 10], [8, 5], [3, -1], [6, 6], [10, 12]]
-y = [0, 1, 1, 0, 0, 1, 0, 0, 1, 1]
+def load_csv(file_path):
+    X, y = [], []
+    with open(file_path, 'r') as file:
+        for line in file:
+            row = line.strip().split(',')
+            X.append([float(row[0]),float(row[1])])
+            y.append(float(row[2]))
+    return X, y
 
+X , y = load_csv("Labwork3\loan.csv")
 # Train logistic regression model
 model = LogisticRegression()
 model.fit(X, y)

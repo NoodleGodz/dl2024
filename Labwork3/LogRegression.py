@@ -59,8 +59,8 @@ def GradientDescent3D(X, y, w, lr, stop):
 
     return w
 def LogRegression(X, y):
-    w = [0.1, 0.1, 0.1]  
-    lr = 0.001  
+    w = [2, 0.5, -5]  
+    lr = 0.00001  
     stop = 0.00001    
     w = GradientDescent3D(X, y, w, lr, stop)
     return w
@@ -68,10 +68,21 @@ def LogRegression(X, y):
 
 
 
-
+"""
 X = [[2, -3], [7, 7], [9, 15], [4, 2], [1, -3], [5, 10], [8, 5], [3, -1], [1, 6], [10, 12]]
 y = [0, 1, 1, 0, 0, 1, 0, 0, 1, 1]
+"""
 
+def load_csv(file_path):
+    X, y = [], []
+    with open(file_path, 'r') as file:
+        for line in file:
+            row = line.strip().split(',')
+            X.append([float(row[0]),float(row[1])])
+            y.append(float(row[2]))
+    return X, y
+
+X , y = load_csv("Labwork3\loan.csv")
 
 w = LogRegression(X,y)
 
@@ -79,7 +90,17 @@ w = LogRegression(X,y)
 
 print (f"f(x) = {w[1]}*X1 + {w[2]}*X2 + {w[0]} = ")
 
+classy = []
+for x in X: 
+    y_hat =  sigmoid(f(x,w))
+    if (y_hat>0.50) : 
+        classy.append(1)
+    else :
+        classy.append(0)
 
+print(X)
+print(y)
+print(classy)
 
 from matplotlib import pyplot as plt
 import numpy as np
