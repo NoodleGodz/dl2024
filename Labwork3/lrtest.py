@@ -2,9 +2,8 @@ from matplotlib import pyplot as plt
 import numpy as np
 from sklearn.linear_model import LogisticRegression
 
-# Define your data
-X = [[2,-3],[7,7],[9,15],[4,2],[1,-3]]
-y = [0,1,1,0,0]
+X = [[2, -3], [7, 7], [9, 15], [4, 2], [1, -3], [5, 10], [8, 5], [3, -1], [6, 6], [10, 12]]
+y = [0, 1, 1, 0, 0, 1, 0, 0, 1, 1]
 
 # Train logistic regression model
 model = LogisticRegression()
