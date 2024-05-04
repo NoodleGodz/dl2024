@@ -9,17 +9,17 @@ def sigmoid(x):
 def diff_w0(Xi, yi, w):
     fx = f(Xi, w)
     y_hat = sigmoid(fx)
-    return (y_hat - yi) * y_hat * (1 - y_hat)
+    return (y_hat - yi)
 
 def diff_w1(Xi, yi, w):
     fx = f(Xi, w)
     y_hat = sigmoid(fx)
-    return (y_hat - yi) * y_hat * (1 - y_hat) * Xi[0]
+    return (y_hat - yi) * Xi[0]
 
 def diff_w2(Xi, yi, w):
     fx = f(Xi, w)
     y_hat = sigmoid(fx)
-    return (y_hat - yi) * y_hat * (1 - y_hat) * Xi[1]
+    return (y_hat - yi) * Xi[1]
 
 def L(Xi, yi, w):
     y_hat = sigmoid(f(Xi, w))
@@ -60,8 +60,8 @@ def GradientDescent3D(X, y, w, lr, stop):
     return w
 def LogRegression(X, y):
     w = [0.1, 0.1, 0.1]  
-    lr = 0.001  # Adjusted learning rate
-    stop = 0.00001  # Adjusted stopping criteria  
+    lr = 0.001  
+    stop = 0.00001    
     w = GradientDescent3D(X, y, w, lr, stop)
     return w
 
