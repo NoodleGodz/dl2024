@@ -37,7 +37,7 @@ class Layer:
         self.neuron = numofNeu
         self.next_layer = numofNext
         self.neuronlist = []
-        self.bias = 0
+        self.bias = 1
     
     def random_mode(self):
         for _ in range(self.neuron - 1):
@@ -59,6 +59,7 @@ class Layer:
         return str([neuron.weight for neuron in self.neuronlist]) + " bias " + str(self.bias)
 
     def feed_forward(self, inputs):
+        self.update_value(inputs)
         #print(inputs)
         outputs = list(self.bias)
         #print(self.neuronlist)
@@ -80,8 +81,15 @@ class Layer:
                  outputs[i] = 0
 
             #outputs[i]= a
-        #print(outputs)
+
+
+        
         return outputs
+    
+    def update_value(self, inputs):
+        if len(inputs)>0:
+            for i, neuron in enumerate(self.neuronlist):
+                neuron.raw_update(inputs[i])
 
     
 
@@ -123,10 +131,10 @@ class Neural_Net:
 
 nn = Neural_Net("Labwork4\\XOR.txt")
 print(nn.layer)
-# Define input values
+
 input_values = [[0, 0], [0, 1], [1, 0], [1, 1]]
 
-# Print the truth table for the inputs
+
 print("Truth Table:")
 print("Input 1 | Input 2 | Predicted Output")
 print("-------------------------------------")
