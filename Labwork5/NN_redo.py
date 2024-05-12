@@ -24,16 +24,18 @@ class Neural_Node:
     def __init__(self) -> None:
         self.a = 0
         self.z = sigmoid(0)
+        self.decision = 0
 
     def update(self,a):
         self.a = a
         self.z = sigmoid(a)
+        self.decision = 1 if self.z>0.5 else 0
 
     def raw_update(self,z):
         self.z = z
 
     def __repr__(self) -> str:
-        return f"A: {self.a}, Z: {self.z:.2f}"
+        return f"A: {self.a}, Z: {self.z:.2f}, Decision: {self.decision}"
 
 class Bias_Node(Neural_Node):
     def __init__(self) -> None:
@@ -96,10 +98,6 @@ class Layer:
             representation += f"Neuron {i+1}: {neuron} Weight {self.weight[i]}\n"
         return representation
 
-
-    def diff_w(y_pred,y_true):
-
-        return (y_pred - y_true)
 
     def back_prop(self,y_pred,y_true,lr):
         x = []
@@ -165,6 +163,7 @@ class Neural_Net:
 
     def back_prop(self, expected_output, lr ):
         pred_output = self.layer[-1].neuronlist[0].z
+        pred_output = 1 if pred_output > 0.5 else 0
         for num in  range(len(self.layer) - 2, -1, -1):
             i = self.layer[num]
             #print(i.numofNeu)
@@ -179,6 +178,7 @@ class Neural_Net:
                 loss = binary_cross_entropy_loss(pred_output,n)
                 losses.append(loss)
                 self.back_prop(n,lr)
+                
             print(f"Epoch {i} : Loss {sum(losses)/len(losses)} \n")
 
     def train(self, epoches,inputs, expected_output, lr):
@@ -202,10 +202,25 @@ print("\n------------------------------------------\n\n")
 learning_rate = 0.02
 expected = 1
 input_data = [[0, 0], [0, 1], [1, 0], [1, 1]]
-target_data = [0.001, 1, 1, 0.001]  # XOR
+target_data = [0, 1, 1, 0]  # XOR
 
-#nn.train_dataset(10000,input_data,expected_output=target_data,lr=learning_rate)
+#nn.train_dataset(100000,input_data,expected_output=target_data,lr=learning_rate)
+def load_csv(file_path):
+    X, y = [], []
+    with open(file_path, 'r') as file:
+        for line in file:
+            row = line.strip().split(',')
+            X.append([float(row[0]),float(row[1])])
+            y.append(float(row[2]))
+    return X, y
 
-nn.train(2000,input_data[0],expected_output=target_data[0],lr=learning_rate)
+nn.train(2000,input_data[3],expected_output=target_data[3],lr=learning_rate)
+
+#X , y = load_csv("Labwork3\loan.csv")
+
+#nn.train(2000,X[0],expected_output=y[0],lr=learning_rate)
+
+
+#nn.train_dataset(10000,X,expected_output=y,lr=learning_rate)
 
 print(nn)
