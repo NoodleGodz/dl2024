@@ -50,9 +50,7 @@ class Layer:
         self.numofNeu = numofNeu
         self.weight = []
         self.bias_weight = []
-        self.neuronlist = []
-        for _ in range(numofNeu):
-            self.neuronlist.append(Neural_Node())
+        self.neuronlist = [Neural_Node() for _ in range(numofNeu)]
         self.bias = Bias_Node()
 
     def random_mode(self,numofNeuNext):
@@ -166,7 +164,6 @@ class Neural_Net:
         pred_output = 1 if pred_output > 0.5 else 0
         for num in  range(len(self.layer) - 2, -1, -1):
             i = self.layer[num]
-            #print(i.numofNeu)
             i.back_prop(pred_output,expected_output,lr)
         return pred_output
 
@@ -199,7 +196,7 @@ print("Output after forward propagation:", output)
 print(nn)
 print("\n------------------------------------------\n\n")
 
-learning_rate = 0.02
+learning_rate = 0.2
 expected = 1
 input_data = [[0, 0], [0, 1], [1, 0], [1, 1]]
 target_data = [0, 1, 1, 0]  # XOR
@@ -214,7 +211,7 @@ def load_csv(file_path):
             y.append(float(row[2]))
     return X, y
 
-nn.train(2000,input_data[3],expected_output=target_data[3],lr=learning_rate)
+nn.train(10000,input_data[3],expected_output=target_data[3],lr=learning_rate)
 
 #X , y = load_csv("Labwork3\loan.csv")
 
