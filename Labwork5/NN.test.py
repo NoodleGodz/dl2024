@@ -1,3 +1,4 @@
+import random
 import numpy as np
 
 # Sigmoid function and its derivative
@@ -83,7 +84,11 @@ if __name__ == "__main__":
     nn = NeuralNetwork()
     nn.train(X, y)
 
+
+random.seed(5)
 print(nn.output_error.shape)
 print(nn.output_delta.shape)
-print(nn.z1_error.shape)
-print(nn.z1_delta.shape)
+print(nn.z2_error.shape)
+print(nn.z2_delta.shape)
+print(nn.z1.shape)
+print(nn.z2_error)

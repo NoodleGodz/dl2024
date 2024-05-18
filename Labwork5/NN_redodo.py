@@ -16,6 +16,7 @@ def dot_product(X, Y):
 
     for j in range(len(Y[0])):
         dot = sum(X[i] * Y[i][j] for i in range(len(X)))
+        result.append(dot)
 
     return result
 
@@ -84,8 +85,10 @@ class NeuralLayer():
         return activations
 
     def backward(self, delta, learning_rate):
+        print("damn",delta)
         error = dot_product(delta,self.weight)
-        delta = error * [sigmoid_derivative(i.z) for i in self.neuronlist]
+        print(error)
+        delta = error * [sigmoid_derivative(i.a) for i in self.neuronlist]
         return delta
 
 
@@ -108,7 +111,7 @@ class OutputLayer(NeuralLayer):
     def backward(self, y, learning_rate=0.1):
         # Compute the output error
         output_error = [self.neuronlist[i].z - y[i] for i in range(self.numofNeu)]
-        print(output_error)
+
         output_delta = [output_error[i] * sigmoid_derivative(self.neuronlist[i].z) for i in range(self.numofNeu)]
         return output_delta 
 
@@ -120,7 +123,7 @@ class NeuralNetwork:
             self.layer_sizes = [int(line.strip()) for line in lines[1:]]
             self.layer_sizes.append(0)
         self.layers = []
-        for i in range(0, self.num_layers - 1 ):
+        for i in range(0, self.num_layers -1 ):
             self.layers.append(NeuralLayer(self.layer_sizes[i],self.layer_sizes[i+1]))
 
         self.layers.append(OutputLayer(1))
@@ -132,8 +135,7 @@ class NeuralNetwork:
         return representation
     
     def forward(self, X):
-        output = X
-        print(len(self.layers))
+        output = X 
         for layer in self.layers:
             output = layer.forward(output)
         return output
@@ -142,17 +144,21 @@ class NeuralNetwork:
         output = self.layers[-1].neuronlist[0].z
         output_error = output - y
         delta = [output_error * sigmoid_derivative(output)]
-        for i in range(self.num_layers-1,0,-1):
+        print(output_error)
+        print(delta)
+        for i in range(self.num_layers-2,-1,-1):
             delta = self.layers[i].backward(delta,lr)
         
 
 random.seed(5)
 nn = NeuralNetwork("Labwork5\\XOR.txt")
-print(nn)
-
-output = (nn.forward([0,1]))
-
-print(nn)
+#print(nn)
 X = [0,1]
+print(X)
+output = (nn.forward(X))
+
+print(nn)
+
+
 y = 1
 nn.backward(y,0.1)

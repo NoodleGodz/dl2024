@@ -60,7 +60,7 @@ class NeuralNetwork:
         # Backward pass
         output_error = output - y
         output_delta = output_error * sigmoid_derivative(output)
-            
+
         z2_error = [output_delta * self.weights_hidden2_output[i][0] for i in range(self.hidden_size_2)]
         z2_delta = [z2_error[i] * sigmoid_derivative(self.a2[i]) for i in range(self.hidden_size_2)]
         
