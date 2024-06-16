@@ -26,7 +26,7 @@ if __name__ == "__main__":
     network.add(Dense(input_dim=4, output_dim=3, activation='relu'))
     network.add(Dense(input_dim=3, output_dim=1, activation='sigmoid'))
 
-    network.train(X, y, epochs=4000, learning_rate=0.01, loss_fn=bce_loss, loss_fn_derivative=bce_loss_derivative,log_file="FCNN_Binary.txt")
+    network.train(X, y, epochs=4000, learning_rate=0.01, loss_fn=bce_loss, loss_fn_derivative=bce_loss_derivative,log_file="log/FCNN_Binary.txt")
     network.summary(X[0])
 
     for i, x in enumerate(X) :
